@@ -1,31 +1,45 @@
-<div class="center">
-    <div class="well top-spacing">
-        <div class="jumbotron">
-            <h1 class="text-center">
-                Pharmacy Index
-            </h1>
-        </div>
-        <table id="example" class="table table-striped table-bordered font-20" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>NABP</th>
-                    <th>Edit</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% @stores.each do |store| %>
-                <tr>
-                    <td><%= store.name %></td>
-                    <td><%= store.phone %></td>
-                    <td><%= store.nabp %></td>
-                    <td><%= link_to 'Edit', edit_store_path(store) %></td>
-                </tr>
-                <% end %>
-            </tbody>
-        </table>
-        <%=link_to "Logout", logout_path, class: "btn btn-danger" %>
-        <%=link_to "Add New Pharmacy", new_store_path, class: "btn btn-info pull-right" %>
-    </div>
+<% 
+# sample pdf file
+# http://quickrx.net/CurrentCustomers/Letters/CarePoints-Ref.pdf
+# http://quickrx.net/webreports/1112072/1140083_reports_20171103.pdf
+
+%>
+<div class="container">
+  <div class="title">
+    <h2><%= @store.name %></h2>
+  </div>
+  <section class="reports-table">
+    <table class="table">
+      <tbody>
+          <% report_date = "" %>
+          <% @reports.each_cons(2) do |report, next_report| %>
+            <% if report_date != report.report_date %>
+              <tr data-toggle="collapse" data-target="#<%=report.report_date %>">
+                  <td><label class="btn btn-block"><%=Date::MONTHNAMES[report.report_date.month] %> <%= report.report_date.year%></label></td>
+              </tr>
+              <tr>
+                <td colspan="1">
+                  <div id="<%=report.report_date %>" class="collapse reports-group-container">
+                    <ul>
+                      <li>
+                        <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
+                      </li>
+            <% else %>
+                      <li>
+                        <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
+                      </li>
+            <% end %>
+            <% if report.report_date != next_report.report_date %>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            <% end %>
+              
+            <% report_date = report.report_date %>
+          <% end %>
+          
+      </tbody>
+    </table>
+  </section>
 </div>

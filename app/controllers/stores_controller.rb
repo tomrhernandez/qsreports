@@ -1,6 +1,8 @@
 class StoresController < ApplicationController
-  before_action :require_user, only: [:index, :edit, :update, :new]
-  before_action :set_no_cache, only: [:index, :edit, :update, :new]
+  before_action :set_store,         only: [:show, :update, :edit, :like]
+  before_action :require_user,      only: [:index, :edit, :update, :new, :show]
+  before_action :set_no_cache,      only: [:index, :edit, :update, :new, :show]
+  before_action :require_same_user, only: [:edit, :update, :show]
   
   # Get store object ready for creation.
   def new
@@ -30,9 +32,16 @@ class StoresController < ApplicationController
   
   # Store listing, find messages in date range.
   def index
-    @stores = Store.all
-    @search = MessageSearch.new(params[:search])
-    @messages = @search.scope
+    @stores = current_user.stores
+    
+    #@stores = Store.all
+    #@search = MessageSearch.new(params[:search])
+    #@messages = @search.scope
+  end
+  
+  def show
+    @store = Store.find(params[:id])
+    @reports = @store.reports.reverse
   end
   
   # Edit a store.
@@ -67,9 +76,19 @@ class StoresController < ApplicationController
   
   private
   
+  def set_store
+    @store = Store.find(params[:id])
+  end
+  
   def store_params
       params.require(:store).permit(:name, :phone, :nabp)
   end
- 
+  
+  def require_same_user
+    if current_user != @store.user
+      flash[:danger] = "You are not permitted to view that store"
+      redirect_to stores_path
+    end
+  end
   
 end

@@ -11,21 +11,57 @@
 
 ### Simulated messages to and from Patient and Pharmacy ###
 
+#Store.create(name: "East Marrietta Drug Co.", nabp: "1112072", user_id: 1)
+#Store.create(name: "Woodstock Pharmacy", nabp: "1140083", user_id: 1)
+#Store.create(name: "Hortons Drug Store", nabp: "1101598", user_id: 1)
+#Store.create(name: "Mableton Pharmacy", nabp: "1111551", user_id: 1)
+#Store.create(name: "Due West Pharmacy", nabp: "1163649", user_id: 1)
+#Store.create(name: "PharMoore Pharmacy", nabp: "1162192", user_id: 1)
+#Store.create(name: "Physicians Pharmacy", nabp: "1106473", user_id: 1)
+#User.create(username: "admin2", password: "admin2")
+#Store.create(name: "Whites Pharmacy", nabp: "1135854", user_id: 2)
+Report.create(display_name: "January Low Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-01-01")
+Report.create(display_name: "January Middle Profit",  filename: "1140083_reports_20171103.pdf", store_id: 1,  report_date: "2017-01-01")
+Report.create(display_name: "January High Profit",    filename: "1140083_reports_20171103.pdf", store_id: 1,    report_date: "2017-01-01")
+ 
+Report.create(display_name: "February Low Profit",    filename: "1140083_reports_20171103.pdf", store_id: 1,    report_date: "2017-02-01")
+Report.create(display_name: "February Middle Profit", filename: "1140083_reports_20171103.pdf", store_id: 1, report_date: "2017-02-01")
+Report.create(display_name: "February High Profit",   filename: "1140083_reports_20171103.pdf", store_id: 1,   report_date: "2017-02-01")
 
-Message.create(to: "14043419132", from: "16168813870", message: "Please refill all my medications", store_id: 1)
-Message.create(to: "16168813870", from: "14043419132", message: "Your medications are ready for pick up. Thank you and have a nice day!", store_id: 1, qs_read: true)
-Message.create(to: "14043419132", from: "16168813870", message: "Refill my blood pressure medicine", store_id: 1)
-Message.create(to: "16168813870", from: "14043419132", message: "Your blood pressure medication is ready for pick up. Thank you and have a nice day!", store_id: 1, qs_read: true)
-Message.create(to: "14043419132", from: "16168813870", message: "Do I have any refills on my Lisinopril?", store_id: 1)
-Message.create(to: "16168813870", from: "14043419132", message: "You have one refill left, would you like to get it filled?", store_id: 1, qs_read: true)
-Message.create(to: "14043419132", from: "16168813870", message: "Need refills for mine and my wife's prescriptions, thank you", store_id: 1)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 1, qs_read: true)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 1, qs_read: true)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 2, qs_read: true)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 2, qs_read: true)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 3, qs_read: true)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 3, qs_read: true)
-Message.create(to: "16168813870", from: "14043419132", message: "All your medications are ready. Thank you and have a nice day!", store_id: 3, qs_read: true)
+Report.create(display_name: "March Low Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-03-01")
+Report.create(display_name: "March Middle Profit",    filename: "1140083_reports_20171103.pdf", store_id: 1,    report_date: "2017-03-01")
+Report.create(display_name: "March High Profit",      filename: "1140083_reports_20171103.pdf", store_id: 1,      report_date: "2017-03-01")
+
+Report.create(display_name: "April High Profit",      filename: "1140083_reports_20171103.pdf", store_id: 1,      report_date: "2017-04-01")
+Report.create(display_name: "April High Profit",      filename: "1140083_reports_20171103.pdf", store_id: 1,      report_date: "2017-04-01")
+Report.create(display_name: "April High Profit",      filename: "1140083_reports_20171103.pdf", store_id: 1,      report_date: "2017-04-01")
+
+Report.create(display_name: "May High Profit",        filename: "1140083_reports_20171103.pdf", store_id: 1,        report_date: "2017-05-01")
+Report.create(display_name: "May High Profit",        filename: "1140083_reports_20171103.pdf", store_id: 1,        report_date: "2017-05-01")
+Report.create(display_name: "May High Profit",        filename: "1140083_reports_20171103.pdf", store_id: 1,        report_date: "2017-05-01")
+Report.create(display_name: "May High Profit",        filename: "1140083_reports_20171103.pdf", store_id: 1,        report_date: "2017-05-01")
+
+Report.create(display_name: "June High Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-06-01")
+Report.create(display_name: "June High Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-06-01")
+Report.create(display_name: "June High Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-06-01")
+      
+Report.create(display_name: "July High Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-07-01")
+Report.create(display_name: "July High Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-07-01")
+Report.create(display_name: "July High Profit",       filename: "1140083_reports_20171103.pdf", store_id: 1,       report_date: "2017-07-01")
+
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+Report.create(display_name: "August High Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-08-01")
+
+Report.create(display_name: "September High Profit",  filename: "1140083_reports_20171103.pdf", store_id: 1,  report_date: "2017-09-01")
+Report.create(display_name: "September High Profit",  filename: "1140083_reports_20171103.pdf", store_id: 1,  report_date: "2017-09-01")
+
+
 
 #for message in Message.all
 #    message.update(store_id: 1)

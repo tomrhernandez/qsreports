@@ -16,3 +16,9 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+
+
+$( window ).resize(function() {
+  if($(window).width() >=766) $('.pdf-link').attr("target", "_blank");
+  else $('.pdf-link').removeAttr("target");
+});

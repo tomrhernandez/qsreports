@@ -1,20 +1,20 @@
-<div class="container top-spacing">
-    <div class="center well shadow form-container">
-        <div class="jumbotron text-center">
-            <h2>QuickSCRIP Texting</h2>
-            <p>Administration Login</p>
+<div class="container">
+    <div class="">
+        <div class="text-center">
+            <h2>QS Reporting</h2>
+            <p>Login</p>
         </div>
         <%= form_tag '/login' do %>
             <div class="form-group">
                 <%= label_tag :username, nil, class: "font-20" %>
-                <%= text_field_tag :username, nil, class: "form-control" %>
+                <%= text_field_tag :username, nil, class: "form-control input-lg" %>
             </div>
             <div class="form-group">
                 <%= label_tag :password, nil, class: "font-20" %>
-                <%= password_field_tag :password, nil, class: "form-control" %>
+                <%= password_field_tag :password, nil, class: "form-control input-lg" %>
             </div>
             <div class="form-group">
-                <%= button_tag '<i class="glyphicon glyphicon-log-in"></i> Log in'.html_safe, type: 'submit', class: "btn btn-success pull-right" %>
+                <%= button_tag '<i class="glyphicon glyphicon-log-in"></i> Log in'.html_safe, type: 'submit', class: "btn btn-lg btn-success pull-right" %>
                 <br>
             </div>
         <% end %>
