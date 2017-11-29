@@ -11,15 +11,16 @@
 
 ### Simulated messages to and from Patient and Pharmacy ###
 
-#Store.create(name: "East Marrietta Drug Co.", nabp: "1112072", user_id: 1)
-#Store.create(name: "Woodstock Pharmacy", nabp: "1140083", user_id: 1)
-#Store.create(name: "Hortons Drug Store", nabp: "1101598", user_id: 1)
-#Store.create(name: "Mableton Pharmacy", nabp: "1111551", user_id: 1)
-#Store.create(name: "Due West Pharmacy", nabp: "1163649", user_id: 1)
-#Store.create(name: "PharMoore Pharmacy", nabp: "1162192", user_id: 1)
-#Store.create(name: "Physicians Pharmacy", nabp: "1106473", user_id: 1)
-#User.create(username: "admin2", password: "admin2")
-#Store.create(name: "Whites Pharmacy", nabp: "1135854", user_id: 2)
+Store.create(name: "East Marrietta Drug Co.", nabp: "1112072", user_id: 1)
+Store.create(name: "Woodstock Pharmacy", nabp: "1140083", user_id: 1)
+Store.create(name: "Hortons Drug Store", nabp: "1101598", user_id: 1)
+Store.create(name: "Mableton Pharmacy", nabp: "1111551", user_id: 1)
+Store.create(name: "Due West Pharmacy", nabp: "1163649", user_id: 1)
+Store.create(name: "PharMoore Pharmacy", nabp: "1162192", user_id: 1)
+Store.create(name: "Physicians Pharmacy", nabp: "1106473", user_id: 1)
+
+#User.create(username: "", password: "", company_name: "", admin: false)
+
 Report.create(display_name: "January Low Profit",     filename: "1140083_reports_20171103.pdf", store_id: 1,     report_date: "2017-01-01")
 Report.create(display_name: "January Middle Profit",  filename: "1140083_reports_20171103.pdf", store_id: 1,  report_date: "2017-01-01")
 Report.create(display_name: "January High Profit",    filename: "1140083_reports_20171103.pdf", store_id: 1,    report_date: "2017-01-01")
@@ -60,13 +61,3 @@ Report.create(display_name: "August High Profit",     filename: "1140083_reports
 
 Report.create(display_name: "September High Profit",  filename: "1140083_reports_20171103.pdf", store_id: 1,  report_date: "2017-09-01")
 Report.create(display_name: "September High Profit",  filename: "1140083_reports_20171103.pdf", store_id: 1,  report_date: "2017-09-01")
-
-
-
-#for message in Message.all
-#    message.update(store_id: 1)
-#    if message.id % 2 == 0
-#        message.update(qs_read: true)
-#    end
-#    message.save
-#end

@@ -3,14 +3,12 @@
   <div class="title">
     <h2>Users Directory</h2>
   </div>
-  <section class="stores-table">
+  <section class="users-table">
     <table class="table table-hover">
       <% @users.each do |user| %>
         <tr>
-          <td>
-            Username: <%= link_to user.username, edit_user_path(user) %>
-            Company Name: <%= user.company_name %>
-          </td>
+          <td>Username: <%= link_to user.username, edit_user_path(user) %><br>
+          Company Name: <%= user.company_name %></td>
         </tr>
       <% end %>
     </table>
