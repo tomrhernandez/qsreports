@@ -17,8 +17,19 @@
 //= require bootstrap-datetimepicker
 //= require_tree .
 
+$( document ).ready(function() {
+  if($(window).width() >=766) $('.pdf-link').attr("target", "_blank");
+  else $('.pdf-link').removeAttr("target");
+  
+  
+  $('.reports-table td label').on('click', function () {
+    $(this).children('.glyphicon').toggleClass('transf');
+  });
+});
+
 
 $( window ).resize(function() {
   if($(window).width() >=766) $('.pdf-link').attr("target", "_blank");
   else $('.pdf-link').removeAttr("target");
 });
+

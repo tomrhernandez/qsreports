@@ -1,0 +1,29 @@
+<%= render 'shared/errors', obj: @user %>
+
+    <%= form_for(@user) do |f| %>
+        <div class="form-group">
+            <%= label_tag :username, nil, class: "font-20" %>
+            <%= f.text_field :username, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= label_tag :password, "Password", class: "font-20" %>
+            <%= f.password_field :password, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= label_tag :company_name, "Company Name", class: "font-20" %>
+            <%= f.text_field :company_name, class: "form-control" %>
+        </div>
+        <br>
+        <div class="form-group">
+            <%= label_tag :admin, "Admin User", class: "font-20" %>
+            <%= f.check_box :admin, {:class => "inline-chkbox"} %>
+        </div>
+        <br>
+        <%= f.submit(@user.new_record? ? 'Create' : 'Save', class: "btn btn-success pull-right") %>
+    <% end %>
+    <%= link_to "Back to Directory", admin_path, class: "btn btn-warning" %>
+    <% if !@user.new_record?  %>
+        <%= link_to "Delete User", user_path(@user), method: :delete, data:{ confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+    <% end %>
+    </div>
+</div>

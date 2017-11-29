@@ -1,9 +1,10 @@
 <div class="container">
-    <div class="">
-        <div class="text-center">
-            <h2>QS Reporting</h2>
-            <p>Login</p>
-        </div>
+    <div class="text-center">
+        <%= image_tag("QS_logo_sm.png", size: "350x122") %>
+        <h2>Report Portal</h2>
+        <p>Login</p>
+    </div>
+    <div class="login-form">
         <%= form_tag '/login' do %>
             <div class="form-group">
                 <%= label_tag :username, nil, class: "font-20" %>

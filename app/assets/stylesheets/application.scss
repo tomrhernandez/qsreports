@@ -30,9 +30,12 @@ body {
     
 }
 
+h1 {
+  font-size: 3em;
+}
 
 h2 {
-    font-size: 2.8em;
+    font-size: 2.5em;
 }
 
 
@@ -62,8 +65,11 @@ h2 {
     font-style: italic;
 }
 
-.form-container {
-    margin-top: 10%;
+.qs-text {
+  font-family: 'Gudea';
+  font-weight: bold;
+  color: #0032a0;
+  border: 1px solid red;
 }
 
 /* Navbar */
@@ -77,10 +83,42 @@ a.navbar-brand {
   color: white !important;
 }
 
+
+/* Title  */
+
+div.title {
+  position: relative;
+}
+
+div.title h2 {
+  //float: left;
+}
+
+div.title p {
+  //position: absolute;
+  //right: 2px;
+  color: #d4d4d4;
+  margin-top: -35px;
+  font-size: 3.5em;
+  
+}
+
+.inline-chkbox {
+  float: left;
+  margin: 4px 7px 0px 0px !important; 
+}
+
+
+
+/* Common Table Styles */
+
+table {
+  font-size: 1.2em;
+}
+
 /* Section Stores Table */
 
 section.stores-table {
-  font-size: 1.2em;
 }
 
 section.stores-table tr {
@@ -91,6 +129,8 @@ section.stores-table tr {
 section.stores-table tr td {
   padding: 20px 0px;
 }
+
+
 
 section.stores-table tr td a{
   display: block;
@@ -105,7 +145,15 @@ section.stores-table tr td a:hover{
 /* Section Reports Table */
 
 section.reports-table {
-  font-size: 1.2em !important;
+}
+
+section.reports-table .delete-report {
+  display: none;
+}
+
+section.reports-table ul li:hover .delete-report {
+  display: inline-block;
+  
 }
 
 section.reports-table ul li {
@@ -116,7 +164,25 @@ section.reports-table ul li {
 section.reports-table label {
   background: white;
   outline: none;
-  font-size: 1.2em;
+  text-align: left;
+  color: #337ab7;
+}
+
+section.reports-table label.btn {
+  font-size: 1em;
+}
+
+section.reports-table label span.glyphicon {
+  font-size: .6em;
+}
+
+section.reports-table label span.glyphicon {
+  color: #555;
+  font-size: .6em;
+  border: 1px solid #ababab;
+  border-radius: 4px;
+  padding: 2px;
+  padding-top: 4px;
 }
 
 section.reports-table label:active {
@@ -144,7 +210,10 @@ section.reports-table aside.reports-group {
 }
 
 
+/* Navbar breaks at 766 */
+
 @media screen and (max-width: 766px) {
+  /* SMALLER than 766 */
     .navbar-btn {
       float: right;
       margin-right: 15px;
@@ -153,9 +222,56 @@ section.reports-table aside.reports-group {
     a.navbar-brand {
       padding-top: 15px;
     }
+    
+}
+
+@media screen and (min-width: 766px) {
+ /* BIGGER than 766 */
+ 
+ .login-form {
+   width: 50%;
+   margin: auto;
+ }
+ 
+  
+}
+
+@media screen and (max-width: 645px) {
+ /* SMALLER than 766 */
+ 
+ .btn-del {
+   margin-top: 10px;
+ }
+ 
+  
+}
+
+@media screen and (min-width: 1000px) {
+ /* BIGGER than 766 */
+ 
+ .login-form {
+   width: 50%;
+   margin: auto;
+ }
+ 
+ .content {
+   width: 50%;
+   margin: auto;
+ }
+  
 }
 
 @media screen and (max-width: 640px) {
     
     
+}
+
+/* Style transformations */
+.transf {
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    display:inline-block;
+    transform:rotateX(180deg);
 }

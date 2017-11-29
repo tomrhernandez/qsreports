@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root 'logins#new'
   resources :stores
   resources :messages
+  resources :reports
+  resources :users
   get '/:nabp/all' => 'stores#all'
   get '/:nabp/inbox' => 'stores#inbox', as: 'inbox'
+  get '/admin' => 'stores#admin', as: 'admin'
   
   get '/login', to: 'logins#new'
   post '/login', to: 'logins#create'

@@ -4,42 +4,46 @@
 # http://quickrx.net/webreports/1112072/1140083_reports_20171103.pdf
 
 %>
-<div class="container">
+<div class="container content">
   <div class="title">
     <h2><%= @store.name %></h2>
   </div>
+  
   <section class="reports-table">
     <table class="table">
       <tbody>
-          <% report_date = "" %>
-          <% @reports.each_cons(2) do |report, next_report| %>
-            <% if report_date != report.report_date %>
-              <tr data-toggle="collapse" data-target="#<%=report.report_date %>">
-                  <td><label class="btn btn-block"><%=Date::MONTHNAMES[report.report_date.month] %> <%= report.report_date.year%></label></td>
-              </tr>
-              <tr>
-                <td colspan="1">
-                  <div id="<%=report.report_date %>" class="collapse reports-group-container">
-                    <ul>
-                      <li>
-                        <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
-                      </li>
-            <% else %>
-                      <li>
-                        <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
-                      </li>
+    <% @reports.sort.reverse.each do |report| %>
+      <% report.each_with_index do |one, index|%>
+        <% if index == 0 %>
+          <tr data-toggle="collapse" data-target="#<%= one %>">
+            <td class="header">
+              <label class="btn btn-block">
+                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                &nbsp;&nbsp;<%=Date::MONTHNAMES[one.month] %> <%= one.year%>
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="1">
+              <div id="<%= one %>" class="collapse reports-group-container">
+        <% else %>
+          <ul>
+            <% one.each do |report| %>
+              <li>
+                <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
+                <% if current_user.admin? %>
+                  <%= link_to 'delete', report_path(report), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete-report btn btn-mini btn-danger' %>
+                <% end %>
+              </li>
             <% end %>
-            <% if report.report_date != next_report.report_date %>
-                    </ul>
-                  </div>
-                </td>
-              </tr>
-            <% end %>
-              
-            <% report_date = report.report_date %>
-          <% end %>
-          
+          </ul>
+        <% end %>
+      <% end %>
+      </div>
+      </td>
+      </tr>
+    <% end %>
+    
       </tbody>
-    </table>
   </section>
 </div>
