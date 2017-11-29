@@ -1,7 +1,5 @@
 class ReportsController < ApplicationController
     
-    #https://marqpdfapp-tomrhernandez.c9users.io/reports|&filename=1140083_reports_20171103.pdf&display_name=January%20Low%202018&nabp=1112072&report_date=2017-01-01
-    
     
     def create
         @store = Store.find_by(nabp: params[:nabp])
