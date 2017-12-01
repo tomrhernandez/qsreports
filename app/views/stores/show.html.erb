@@ -3,16 +3,12 @@
   <div class="title">
     <h2><%= @store.name %></h2>
   </div>
-  
   <section class="reports-table">
     <table class="table">
       <tbody>
-        <%#= @reports %>
         <% @reports.sort.reverse.each do |report| %>
-          <%#= report %>
           <% report.each_with_index do |one, index|%>
             <% if index == 0 %>
-            <%#= one %>
               <tr data-toggle="collapse" data-target="#<%= one %>">
                 <td class="header">
                   <label class="btn btn-block">
