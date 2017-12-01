@@ -7,38 +7,39 @@
   <section class="reports-table">
     <table class="table">
       <tbody>
-    <% @reports.sort.reverse.each do |report| %>
-      <% report.each_with_index do |one, index|%>
-        <% if index == 0 %>
-          <tr data-toggle="collapse" data-target="#<%= one %>">
-            <td class="header">
-              <label class="btn btn-block">
-                <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
-                &nbsp;&nbsp;<%=Date::MONTHNAMES[one.month] %> <%= one.year%>
-              </label>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="1">
-              <div id="<%= one %>" class="collapse reports-group-container">
-        <% else %>
-          <ul>
-            <% one.each do |report| %>
-              <li>
-                <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
-                <% if current_user.admin? %>
-                  <%= link_to 'delete', report_path(report), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete-report btn btn-mini btn-danger' %>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-      <% end %>
-      </div>
-      </td>
-      </tr>
-    <% end %>
+        <%#= @reports %>
+        <% @reports.sort.reverse.each do |report| %>
     
+          <% report.each_with_index do |one, index|%>
+            <% if index == 0 %>
+              <tr data-toggle="collapse" data-target="#<%= one %>">
+                <td class="header">
+                  <label class="btn btn-block">
+                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    &nbsp;&nbsp;<%=(one.day == 31 && one.month == 12) ? "Annual" : Date::MONTHNAMES[one.month] %> <%= one.year%>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1">
+                  <div id="<%= one %>" class="collapse reports-group-container">
+            <% else %>
+              <ul>
+                <% one.each do |report| %>
+                  <li>
+                    <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
+                    <% if current_user.admin? %>
+                      <%= link_to 'delete', report_path(report), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete-report btn btn-mini btn-danger' %>
+                    <% end %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
+          <% end %>
+          </div>
+          </td>
+          </tr>
+        <% end %>
       </tbody>
   </section>
 </div>

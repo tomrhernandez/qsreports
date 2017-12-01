@@ -56,7 +56,8 @@ class StoresController < ApplicationController
   def show
     @store = Store.find(params[:id])
     #@reports = @store.reports
-    @reports = @store.reports.group_by {|m| m.report_date.beginning_of_month}
+    #@reports = @store.reports.group_by {|m| m.report_date.beginning_of_month}
+    @reports = @store.reports.group_by {|m| m.report_date}
   end
   
   # Edit a store.
