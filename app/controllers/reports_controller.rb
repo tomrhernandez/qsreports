@@ -1,5 +1,6 @@
 class ReportsController < ApplicationController
-    
+    before_action :current_user_is_admin, only: [:edit, :update, :new, :create, :destroy]
+
     
     def create
         @store = Store.find_by(nabp: params[:nabp])
@@ -19,9 +20,27 @@ class ReportsController < ApplicationController
         redirect_to :back
     end
     
+    def edit
+       @report = Report.find(params[:id])
+       @stores = Store.all
+    end
+    
+    def update
+        @report = Report.find(params[:id])
+        @report.update(report_params)
+        flash[:success] = "Report Updated"
+        redirect_to :back
+    end
+    
+    
     private
     
-    #def report_params
-    #    params.require(:report).permit(:filename, :display_name, :store_id, :report_date)
-    #end
+    def report_params
+        params.require(:report).permit(:filename, :display_name, :store_id, :report_date)
+    end
+    
+    def current_user_is_admin
+        current_user.admin?
+    end
+    
 end

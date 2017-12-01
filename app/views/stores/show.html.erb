@@ -9,9 +9,10 @@
       <tbody>
         <%#= @reports %>
         <% @reports.sort.reverse.each do |report| %>
-    
+          <%#= report %>
           <% report.each_with_index do |one, index|%>
             <% if index == 0 %>
+            <%#= one %>
               <tr data-toggle="collapse" data-target="#<%= one %>">
                 <td class="header">
                   <label class="btn btn-block">
@@ -29,7 +30,8 @@
                   <li>
                     <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
                     <% if current_user.admin? %>
-                      <%= link_to 'delete', report_path(report), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete-report btn btn-mini btn-danger' %>
+                      <%= link_to 'Delete', report_path(report), method: :delete, data: {confirm: 'Are you sure?'}, class: 'delete-report btn btn-mini btn-danger' %>
+                      <%= link_to 'Edit', edit_report_path(report), class: 'delete-report btn btn-mini btn-warning' %>
                     <% end %>
                   </li>
                 <% end %>

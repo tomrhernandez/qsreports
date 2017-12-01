@@ -1,0 +1,34 @@
+<%= render 'shared/errors', obj: @report %>
+
+    <%= form_for(@report) do |f| %>
+        <div class="form-group">
+            <%= label_tag :filename, nil, class: "font-20" %>
+            <%= f.text_field :filename, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= label_tag :display_name, "Display Name", class: "font-20" %>
+            <%= f.text_field :display_name, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <%= label_tag :report_date, "Report Date", class: "font-20" %>
+            <%= f.date_field :report_date, class: "form-control" %>
+        </div>
+        <div class="form-group">
+            <label>Current Store</label>
+            <p>
+                <% if @report.store %>
+                    <%=  @report.store.name %>
+                <% else %>
+                    <%= "None" %>
+                <% end %>
+            </p>
+        </div>
+        <div class="form-group">
+            <%= label_tag :store_id, "Please select user", class: "font-20" %>
+            <%= f.select :store_id, options_for_select(@stores.collect {|c| [c.name, c.id]}, f.object.store_id) ,{},  {:class => "form-control"} %>
+        </div>
+        <%= f.submit(@report.new_record? ? 'Create' : 'Save', class: "btn btn-success pull-right") %>
+    <% end %>
+    <%= link_to "Back to Directory", store_path(@report.store_id), class: "btn btn-warning" %>
+    </div>
+</div>
