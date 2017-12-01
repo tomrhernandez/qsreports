@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-    before_action :current_user_is_admin, only: [:edit, :update, :new, :create, :destroy]
+    before_action :current_user_is_admin, only: [:edit, :update, :destroy]
 
     
     def create
