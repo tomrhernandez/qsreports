@@ -36,7 +36,7 @@ class ReportsController < ApplicationController
     private
     
     def report_params
-        params.require(:report).permit(:filename, :display_name, :store_id, :report_date)
+        params.require(:report).permit(:filename, :display_name, :store_id, :report_date, :created_at)
     end
     
     def current_user_is_admin

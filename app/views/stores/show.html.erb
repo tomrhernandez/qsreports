@@ -22,7 +22,10 @@
                   <div id="<%= one %>" class="collapse reports-group-container">
             <% else %>
               <ul>
-                <% one.each do |report| %>
+                <% one.sort{|a,b| b.created_at <=> a.created_at}.each do |report| %>
+                <br>
+                <%#= one %>
+                <br>
                   <li>
                     <%= link_to report.display_name, "http://quickrx.net/webreports/#{@store.nabp}/#{report.filename}", class: "pdf-link" %>
                     <% if current_user.admin? %>
