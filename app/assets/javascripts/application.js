@@ -27,8 +27,8 @@ $( document ).ready(function() {
   
   
   $('.reports-table td label').on('click', function () {
-    $(this).rotate(90);
-    //$(this).children('.glyphicon').toggleClass('transf');
+    //$(this).rotate(90);
+    $(this).children('.glyphicon').toggleClass('down');
   });
 });
 
