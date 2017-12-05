@@ -27,8 +27,8 @@
       <% @stores.each do |store| %>
         <tr>
           <td>
-            <%= link_to image_tag("store-icon-200.png", size: "30x30"), store_path(store), class: "store-icon" %>
-            <%= link_to store.name, store_path(store), class:"table-link" %>
+            <%= link_to image_tag("store-icon-200.png", size: "30x30"), edit_store_path(store), class: "store-icon" %>
+            <%= link_to store.name, edit_store_path(store), class:"table-link" %>
           </td>
           <td><%= store.user.username %></td>
         </tr>
