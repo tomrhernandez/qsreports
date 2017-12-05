@@ -16,6 +16,10 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require_tree .
+/* global $ */
+
+
+var degrees = 90;
 
 $( document ).ready(function() {
   if($(window).width() >=766) $('.pdf-link').attr("target", "_blank");
@@ -23,7 +27,8 @@ $( document ).ready(function() {
   
   
   $('.reports-table td label').on('click', function () {
-    $(this).children('.glyphicon').toggleClass('transf');
+    $(this).rotate(90);
+    //$(this).children('.glyphicon').toggleClass('transf');
   });
 });
 

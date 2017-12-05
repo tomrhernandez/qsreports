@@ -27,7 +27,7 @@
     <% end %>
     <%= link_to "Back to Directory", admin_path, class: "btn btn-warning" %>
     <% if !@store.new_record?  %>
-        <%= link_to "Delete Store", store_path(@store), method: :delete, data:{ confirm: 'Are you sure?'}, class: "btn btn-danger btn-del" %>
+        <%= link_to "Delete Store", store_path(@store), method: :delete, data:{ confirm: 'Are you sure?'}, class: "btn btn-danger" %>
     <% end %>
     </div>
 </div>

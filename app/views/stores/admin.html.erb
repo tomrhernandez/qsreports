@@ -7,6 +7,7 @@
     <table class="table table-hover">
       <% @users.each do |user| %>
         <tr>
+          <td><span class="glyphicon glyphicon-user"></span></td>
           <td>Username: <%= link_to user.username, edit_user_path(user) %><br>
           Company Name: <%= user.company_name %></td>
         </tr>
@@ -14,7 +15,8 @@
     </table>
   </section>
   <%= link_to '<i class="glyphicon glyphicon-plus"></i> Add New User'.html_safe, new_user_path, class: "btn btn-success" %>
-  
+  <br>
+  <br>
   <div class="title">
     <h2>Store Directory</h2>
   </div>
@@ -23,7 +25,8 @@
       <% @stores.each do |store| %>
         <tr>
           <td>
-            <%= link_to store.name, edit_store_path(store) %>
+            <%= link_to image_tag("store-icon-200.png", size: "30x30"), store_path(store), class: "store-icon" %>
+            <%= link_to store.name, store_path(store), class:"table-link" %>
           </td>
         </tr>
       <% end %>

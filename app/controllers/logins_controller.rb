@@ -17,7 +17,7 @@ class LoginsController < ApplicationController
                 redirect_to stores_path
             end
         else
-            flash[:danger] = "Your user name or password does not match."
+            flash[:danger] = "Username or password incorrect."
             render 'new'
         end
     end

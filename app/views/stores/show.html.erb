@@ -1,6 +1,7 @@
 
 <div class="container content">
   <div class="title">
+    <%= image_tag("store-icon-200.png", size: "50x50") %>
     <h2><%= @store.name %></h2>
   </div>
   <section class="reports-table">
@@ -12,7 +13,7 @@
               <tr data-toggle="collapse" data-target="#<%= one %>">
                 <td class="header">
                   <label class="btn btn-block">
-                    <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+                    <span class="glyphicon glyphicon-collapse-down" aria-hidden="true"></span>
                     &nbsp;&nbsp;<%=(one.day == 31 && one.month == 12) ? "Annual" : Date::MONTHNAMES[one.month] %> <%= one.year%>
                   </label>
                 </td>

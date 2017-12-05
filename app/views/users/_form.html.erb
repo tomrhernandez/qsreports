@@ -23,7 +23,7 @@
     <% end %>
     <%= link_to "Back to Directory", admin_path, class: "btn btn-warning" %>
     <% if !@user.new_record?  %>
-        <%= link_to "Delete User", user_path(@user), method: :delete, data:{ confirm: 'Are you sure?'}, class: "btn btn-danger btn-del" %>
+        <%= link_to "Delete User", user_path(@user), method: :delete, data:{ confirm: 'Are you sure?'}, class: "btn btn-danger" %>
     <% end %>
     </div>
 </div>
