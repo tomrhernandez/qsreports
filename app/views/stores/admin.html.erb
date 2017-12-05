@@ -24,6 +24,7 @@
     <table class="table table-hover">
       <th>Name</th>
       <th>User</th>
+      <th>NABP</th>
       <% @stores.each do |store| %>
         <tr>
           <td>
@@ -31,6 +32,7 @@
             <%= link_to store.name, edit_store_path(store), class:"table-link" %>
           </td>
           <td><%= store.user.username %></td>
+          <td><%= store.nabp %></td>
         </tr>
       <% end %>
     </table>
