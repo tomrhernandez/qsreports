@@ -50,10 +50,17 @@ h2 {
     top: 10px;
 }
 
+/* Forms */
+
 .form-container {
   max-width: 500px;
   min-width: 335px;
   margin: auto;
+}
+
+form .date-select {
+  width: 30%;
+  display: inline-block;
 }
 
 #flash {

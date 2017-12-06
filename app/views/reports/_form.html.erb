@@ -11,12 +11,14 @@
         </div>
         <div class="form-group">
             <%= label_tag :report_date, "Report Date (affects grouping)", class: "font-20" %>
-            <%= f.date_field :report_date, class: "form-control" %>
+            <br>
+            <%= f.date_select :report_date, {:order => [:month, :day, :year]}, class: "form-control date-select" %>
         </div>
         
         <div class="form-group">
             <%= label_tag :created_at, "Created Date (affects sorting)", class: "font-20" %>
-            <%= f.date_field :created_at, class: "form-control" %>
+            <br>
+            <%= f.date_select :created_at, {:order => [:month, :day, :year]}, class: "form-control date-select" %>
         </div>
         <div class="form-group">
             <label>Current Store</label>
