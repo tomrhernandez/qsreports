@@ -10,18 +10,37 @@
             <%= f.text_field :nabp, class: "form-control" %>
         </div>
         <div class="form-group">
-            <label>Current User</label>
+            <label>Current Users</label>
             <p>
-                <% if @store.user %>
-                    <%=  @store.user.username %>
+                <% if @store.users.count > 0 %>
+                    <% for user in @store.users %>
+                        <p><%= user.username %></p>
+                    <% end %>
                 <% else %>
-                    <%= "None" %>
+                    <p>No users associated with this store</p>
                 <% end %>
+                <%# if @store.user %>
+                    <%#=  @store.user.username %>
+                <%# else %>
+                    <%#= "None" %>
+                <%# end %>
             </p>
         </div>
         <div class="form-group">
-            <%= label_tag :user_id, "Please select user", class: "font-20" %>
-            <%= f.select :user_id, options_for_select(@users.collect {|c| [c.username, c.id]}, f.object.user_id) ,{},  {:class => "form-control"} %>
+            <%= label_tag :user_id, "Add/remove current users", class: "font-20" %>
+            <%#= f.select :user_id, options_for_select(@users.collect {|c| [c.username, c.id]}, f.object.user_id) ,{},  {:class => "form-control"} %>
+            <ul>
+                <% for user in User.all %>
+                <li>
+                    <% if user.admin? %>
+                        <% next %>
+                    <% end %>
+                    <%= hidden_field_tag("store[user_ids][]", nil) %>
+                    <%= check_box_tag "store[user_ids][]", user.id, @store.users.include?(user) %>
+                    <%= user.username %>
+                </li>
+                <% end %>
+            </ul>
         </div>
         <%= f.submit(@store.new_record? ? 'Create' : 'Save', class: "btn btn-success pull-right") %>
     <% end %>

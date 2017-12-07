@@ -34,7 +34,7 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
     if @store.save
       flash[:success] = "Store Created"
-      redirect_to admin_path
+      redirect_to edit_store_path(@store)
     else
       render 'new'
     end
@@ -73,7 +73,7 @@ class StoresController < ApplicationController
     @users = User.all
     @store.update(store_params)
     flash[:success] = "Store Updated"
-    redirect_to stores_path
+    redirect_to edit_store_path(@store)
   end
   
   # Find by NABP number, check for API key and secret, only show incoming messages.
@@ -99,11 +99,12 @@ class StoresController < ApplicationController
   end
   
   def store_params
-      params.require(:store).permit(:name, :nabp, :user_id)
+      params.require(:store).permit(:name, :nabp, {user_ids:[]} )
   end
   
   def require_same_user
-    if current_user != @store.user
+    #if current_user != @store.users
+    if !@store.users.include? current_user
       flash[:danger] = "You are not permitted to view that store"
       redirect_to stores_path
     end

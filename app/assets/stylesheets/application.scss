@@ -50,6 +50,10 @@ h2 {
     top: 10px;
 }
 
+ul {
+  list-style: none;
+}
+
 /* Forms */
 
 .form-container {
@@ -132,6 +136,10 @@ div.title p {
 .jumbotron h4 {
   margin-top: 20px;
   font-size: 1.4em;
+}
+
+.jumbotron p {
+  margin-bottom: -20px;
 }
 
 /* Common Table Styles */

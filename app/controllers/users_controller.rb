@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             flash[:success] = "User Created"
-            redirect_to admin_path
+            redirect_to edit_user_path(@user)
         else
             render 'new'
         end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @user.update(user_params)
         flash[:success] = "User updated"
-        redirect_to admin_path
+        redirect_to edit_user_path(@user)
     end
    
    

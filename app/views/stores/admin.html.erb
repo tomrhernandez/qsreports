@@ -23,7 +23,7 @@
   <section class="stores-table">
     <table class="table table-hover">
       <th>Name</th>
-      <th>User</th>
+      <th>Users</th>
       <th>NABP</th>
       <% @stores.each do |store| %>
         <tr>
@@ -31,7 +31,11 @@
             <%= link_to image_tag("store-icon-200.png", size: "30x30"), edit_store_path(store), class: "store-icon" %>
             <%= link_to store.name, edit_store_path(store), class:"table-link" %>
           </td>
-          <td><%= store.user.username %></td>
+          <td>
+            <% store.users.each do |user| %>
+            <p><%= user.username %></p>
+            <% end %>
+          </td>
           <td><%= store.nabp %></td>
         </tr>
       <% end %>

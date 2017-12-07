@@ -1,7 +1,8 @@
 <div class="container top-spacing">
     <div class="well shadow form-container">
         <div class="jumbotron">
-            <h2 class="text-center">Editing: <%= @user.username %></h2>
+            <p class="text-center text-muted"><small>Editing:</small></p>
+            <h2 class="text-center"><%= @user.username %></h2>
         </div>
         <%= render "form" %>
     </div>
