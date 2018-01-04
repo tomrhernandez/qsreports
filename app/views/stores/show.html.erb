@@ -3,6 +3,7 @@
   <div class="title">
     <%= image_tag("store-icon-200.png", size: "50x50") %>
     <h2><%= @store.name %></h2>
+    <p><%= link_to 'Create Report', new_report_path(id: @store.id), class: 'btn btn-mini btn-success' %></p>
   </div>
   <section class="reports-table">
     <table class="table">

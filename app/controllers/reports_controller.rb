@@ -1,10 +1,15 @@
 class ReportsController < ApplicationController
-    before_action :current_user_is_admin, only: [:edit, :update, :destroy]
+    before_action :current_user_is_admin, only: [:edit, :update, :destroy, :new]
 
     
     def create
         @store = Store.find_by(nabp: params[:nabp])
+        if @store.nil?
+           @store = Store.find(params[:report][:store_id])
+           @report = Report.new({:filename => params[:report][:filename], :display_name => params[:report][:display_name], :store_id => @store.id, :report_date => params[:report][:report_date]})
+        else
         @report = Report.new({:filename => params[:filename], :display_name => params[:display_name], :store_id => @store.id, :report_date => params[:report_date]})
+        end
         if @report.save
             render :text => "Report saved"
         else
@@ -12,6 +17,11 @@ class ReportsController < ApplicationController
                 render :text => "ERROR: #{message} trying to save \"#{attribute}\""
             end
         end
+    end
+    
+    def new 
+        @store = Store.find(params[:id])
+        @report = Report.new
     end
     
     def destroy
