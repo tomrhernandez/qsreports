@@ -13,9 +13,12 @@ class ReportsController < ApplicationController
         if @report.save
             render :text => "Report saved"
         else
-            @report.errors.each do |attribute, message|
-                render :text => "ERROR: #{message} trying to save \"#{attribute}\""
-            end
+            render :text => @report.errors.full_messages
+            #@report.errors do |attribute, message|
+                #render :text => "ERROR: #{message} trying to save \"#{attribute}\""
+                
+            #end
+            
         end
     end
     
